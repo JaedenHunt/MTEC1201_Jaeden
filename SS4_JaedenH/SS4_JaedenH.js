@@ -11,6 +11,8 @@ let berryb = 0;
 let berryg = 0;
 let img; 
 let showImage = true;
+let stopTime = 0
+let berryVisible = true;
 
 
 function setup() {
@@ -29,111 +31,7 @@ strokeWeight (1)
 fill(50, 220, 70);
 circle(mouseX, mouseY, 5);
 
-fill(50, 220, 70);
-strokeWeight(1)
-rect(30, 12, 3, 40)
-
-fill(50, 220, 70);
-strokeWeight(1)
-rect(30, 12, 25, 3)
-
-fill(50, 220, 70);
-strokeWeight(1)
-rect(30, 29, 15, 3)
-
-fill(50, 220, 70);
-strokeWeight(1)
-rect(70, 12, 3, 40)
-
-fill(50, 220, 70);
-strokeWeight(1)
-rect(70, 12, 25, 3)
-
-fill(50, 220, 70);
-strokeWeight(1)
-rect(70, 29, 15, 3)
-
-fill(60, 220, 70);
-strokeWeight(1)
-rect(70, 50, 25, 3)
-
-fill(50, 220, 70);
-strokeWeight(1)
-rect(110, 12, 3, 40)
-
-fill(50, 220, 70);
-strokeWeight(1)
-rect(110, 12, 25, 3)
-
-fill(50, 220, 70);
-strokeWeight(1)
-rect(110, 29, 15, 3)
-
-fill(60, 220, 70);
-strokeWeight(1)
-rect(110, 50, 25, 3)
-
-fill(50, 220, 70);
-strokeWeight(1)
-rect(70, 12, 3, 40)
-
-fill(50, 220, 70);
-strokeWeight(1)
-rect(70, 12, 25, 3)
-
-fill(50, 220, 70);
-strokeWeight(1)
-rect(70, 29, 15, 3)
-
-fill(60, 220, 70);
-strokeWeight(1)
-rect(150, 50, 25, 3)
-
-fill(50, 220, 70);
-strokeWeight(1)
-rect(172, 13, 3, 36)
-
-fill(60, 220, 70);
-strokeWeight(1)
-rect(150, 10, 25, 3)
-
-fill(50, 220, 70);
-strokeWeight(1)
-rect(150, 6, 3, 46)
-
-fill(60, 220, 70);
-strokeWeight(1)
-rect(140, 110, 25, 3)
-
-fill(50, 220, 70);
-strokeWeight(1)
-rect(140, 72, 3, 40)
-
-fill(50, 220, 70);
-strokeWeight(1)
-rect(140, 72, 25, 3)
-
-fill(50, 220, 70);
-strokeWeight(1)
-rect(140, 89, 15, 3)
-
-fill(50, 220, 70);
-strokeWeight(1)
-rect(87, 72, 4, 25)
-
-fill(50, 220, 70);
-strokeWeight(1)
-rect(62, 72, 56, 3)
-
-fill(50, 220, 70);
-strokeWeight(1)
-rect(59, 70, 3, 40) 
-
-fill(50, 220, 70);
-strokeWeight(1)
-rect(115, 72, 3, 38) 
-
-fill(255, 226, 10);
+fill(245, 242, 85);
 strokeWeight (4, 4)
  triangle(260, 128, 350, 95, 320, 40)
 
@@ -242,16 +140,24 @@ strokeWeight (2, 2)
 fill(150, 88, 24)
 line(265, 350, 265, 150)
 
+fill(0);
+textSize(16);
+textFont('Georgia');
+text ('Feed the Duck!', 40, 60)
+fill(255, 226, 10)
+
 strokeWeight(1);
 
-if (y<100) {
+if (berryVisible == true && y < 100) { 
+
 fill (berryr, berryg, berryb);
 circle(253, y, 9);
 circle(235, y, 9);
 circle(244, y, 9);
 circle(262, y, 9);
 }
-else if (y<141) {
+else if (berryVisible == true && y < 146) {
+
     fill(berryr, berryg, berryb);
 circle(252, y, 12);
 circle(230, y, 12);
@@ -262,14 +168,33 @@ circle(263, y, 12);
 if (showImage == true) {
     image(img, 0, 0, 400, 400)
 }
+
+if (y < 141){ 
 y = y + berryspeed;
+}
+
+else {
+   if (stopTime == 0) {
+    stopTime = millis() + 2000;
+}
+
+if (millis() > stopTime) {
+    berryVisible = false;
+}
+    }
+
+
+
 
 }
-function mousePressed() { 
-y=0;
-berryr = random(255);
-berryg = random(255);
-berryb = random(255);
+function mousePressed() {
+    y = 0;
+    stopTime = 0;
+    berryVisible = true;
+
+    berryr = random(255);
+    berryg = random(255);
+    berryb = random(255);
 }
 
 function keyPressed() {
