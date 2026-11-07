@@ -19,6 +19,14 @@ let textSpeed = 0.75
 let apple; 
 let avc;
 let carrot;
+let celery;
+let b;
+let choc;
+let insect;
+let onion; 
+let poison; 
+let trash; 
+
 
 
 
@@ -32,6 +40,17 @@ img = loadImage('images.jpeg');
 apple = loadImage('apple.png');
 avc = loadImage('avc.webp');
 carrot = loadImage('carrot.png');
+celery = loadImage('celery.png'); 
+b = loadImage('b.png'); 
+choc = loadImage('choc.png'); 
+insect = loadImage('insect.png'); 
+onion = loadImage('onion.png'); 
+poison = loadImage('poison.png'); 
+trash = loadImage('trash.png'); 
+poison = loadImage('poison.png')
+
+
+
 
 
 
@@ -229,20 +248,36 @@ if (showImage == true) {
    rect(0, 0, 400, 400);
 
    fill(190, 0, 0);
-   textSize(30);
+   textSize(31);
    textStyle(BOLD)
    textFont("monospace")
    text("Click to Start", 75, 200);
-      
-   image(apple, 75, 50, 40, 40);
-   image(avc, 120, 50, 40, 40);
-      image(carrot, 163, 50, 40, 40);
-            image(carrot, 163, 50, 40, 40);
+  
+//food
+   image(apple, 75, 55, 39, 39);
+image(celery, 122, 48, 53, 53);
+   image(carrot, 175, 52, 48, 48);
+
+//junk
+   image(trash, 360, 110, 40, 40);
+   image(avc, 316, 110, 39, 39);
+    image(onion, 65, 96, 63, 63);
+    image(poison, 162, 100, 60, 60);
+        image(b, 225, 110, 40, 40);
+            image(insect, 275, 110, 40, 40);
+               image(choc, 117, 98, 59, 59);
 
 
 
 
-   fill(255);
+
+               
+
+
+
+
+
+   fill(255);  
    textSize(20);
    textFont("monospace")
    text("Directions", 10 , 25);
@@ -254,7 +289,7 @@ if (showImage == true) {
    text("Food:", 10, 80)
   
      fill(250, 0, 0)
-   text("Junk:", 10, 130)
+   text("Junk:", 10, 132)
 
 
 
