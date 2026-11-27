@@ -221,7 +221,7 @@ if (lives <= 0) {
     textSize (30)
   text("Game Over!", 125, 200);
   textSize (25)
-    text("Press any key to try again", 50, 240);
+    text("Press any key to try again", 27, 240);
 
 fill(245, 242, 85);
 strokeWeight(4, 4)
